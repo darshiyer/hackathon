@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-image: linear-gradient(135deg, #000000 10%, #353434 100%);
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+}
+
+header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 80px;  /* Increased the left padding to shift the title further right */
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.title {
+  color: #ffffff;
+  font-size: 2rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+}
+
+.navbar ul li {
+  margin-left: 20px;
+}
+
+.navbar ul li a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 1rem;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.navbar ul li a:hover {
+  background-color: #555555;
+}
+
+::selection {
+  color: #f2f2f2;
+  background: #f86d8d;
+}
+
+body::before,
+body::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+}
+
+body::before {
+  clip-path: circle(40% at left 20%);
+  opacity: 0.4;
+  background-image: linear-gradient(135deg, #323232 10%, #232323 100%);
+}
+
+body::after {
+  opacity: 0.4;
+  clip-path: circle(25% at right 80%);
+  background-image: linear-gradient(135deg, #2c2325 10%, #0f0e0e 100%);
+}
+
+.box {
+  max-width: 1000px;
+  width: 100%;
+  position: absolute;
+  bottom: 20px;
+}
+
+.box .search-box {
+  position: relative;
+  height: 60px;
+  max-width: 100px;
+  margin: auto;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 30px;
+  transition: all 0.3s ease;
+}
+
+#check:checked ~ .search-box {
+  max-width: 880px;  /* Reduced the max width by 20px */
+}
+
+.search-box input {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  border-radius: 30px;
+  background: #fff;
+  outline: none;
+  border: none;
+  padding-left: 20px;
+  font-size: 20px;
+}
+
+.search-box .icon {
+  position: absolute;
+  right: -2px;
+  top: 0;
+  width: 100px;
+  background: #FFF;
+  height: 100%;
+  text-align: center;
+  line-height: 60px;
+  color: #000000;
+  font-size: 24px;
+  border-radius: 30px;
+}
+
+#check:checked ~ .search-box .icon {
+  background: #ffffff;
+  color: #000000;
+  width: 110px;
+  border-radius: 0 30px 30px 0;
+}
+
+#check {
+  display: none;
+}
+
+/* Added CSS for the fly-to-bottom animation */
+.fly-to-bottom {
+  animation: flyToBottom 2s forwards;
+}
+
+@keyframes flyToBottom {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(0); /* Stay at the bottom since the box is already positioned at the bottom */
+  }
+}
+
+/* Added CSS for keeping the search box expanded */
+.expanded {
+  max-width: 880px !important;  /* Reduced the max width by 20px */
+}

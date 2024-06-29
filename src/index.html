@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LawAI</title>
+</head>
+<body>
+  <header>
+    <h1 class="title">LawAI</h1>
+    <nav class="navbar">
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div class="box">
+    <input type="checkbox" id="check">
+    <div class="search-box">
+      <input type="text" placeholder="What do you want to search?" id="searchInput">
+      <label for="check" class="icon" id="searchButton">
+        <i class="fas fa-arrow-up"></i> <!-- Changed icon -->
+      </label>
+    </div>
+  </div>
+
+  <script>
+    let searchBoxOpened = false;
+    let searchBoxMoved = false;
+    document.getElementById('searchButton').addEventListener('click', function() {
+      const searchBox = document.querySelector('.search-box');
+      const searchInput = document.getElementById('searchInput');
+      if (!searchBoxOpened) {
+        document.getElementById('check').checked = true;
+        searchBoxOpened = true;
+      } else if (searchInput.value.trim() !== '' && !searchBoxMoved) {
+        searchBox.classList.add('fly-to-bottom', 'expanded');
+        searchBoxMoved = true;
+      }
+    });
+  </script>
+</body>
+</html>
